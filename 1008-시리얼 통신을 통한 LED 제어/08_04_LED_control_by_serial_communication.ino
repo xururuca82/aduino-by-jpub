@@ -20,7 +20,7 @@ void serialEvent() {			// 시리얼 포트로 데이터 수신
   while(Serial.available()) {
     char inChar = (char)Serial.read();	// 한 바이트 읽기
     Serial.println(inChar);
-    if(inChar == 'e') {	// 문자열 종료 검사
+    if(inChar == '\n' || inchar == '\r') {	// 문자열 종료 검사
       if(inputString.equals("on")) {		// 'on'이 전송된 경우
         ledOnOff = true;					// LED 켜기
         Serial.println("LED on!");
